@@ -50,7 +50,9 @@ def show_melon(melon_id):
     Show all info about a melon. Also, provide a button to buy that melon.
     """
 
-    melon = melons.get_by_id("meli")
+    melon = melons.get_by_id(melon_id)
+
+
     print(melon)
     return render_template("melon_details.html",
                            display_melon=melon)
@@ -77,6 +79,53 @@ def show_shopping_cart():
     #
     # Make sure your function can also handle the case wherein no cart has
     # been added to the session
+
+    # melon_list = melons.get_all()
+    # Total = []
+    # # if session['cart'] != {}:
+    # #     session['cart'].get[melon_id]
+    # session['cart'] = {melon_id, price}
+    # if melon_id not in session['cart']:
+    #     session[cart][melon_id] = 1
+    # else: 
+    #     session['cart'][melon_id] += 1
+    #     Total.append(session['cart'][price])
+    #     Total = sum(Total)
+    # if sessions['cart'] > 0:
+    #     (session['cart'].get(melon_id))
+
+    """Cart dictionary from session."""
+    cart = {}
+    cart = session{'cart'}
+
+
+    """List to hold melon objects."""
+    melon_object = melons.get_by_id(melon_id)
+    melon_object = list(melon_object)
+
+    """Cost for that type of melon."""
+    #Find melon number, multiply by melon price
+    cost_for_melon_type = cart.get[melon_id] * melon.price
+
+    """Add cost for type of melon to order total. """
+    cart_list = []
+
+    for melon in melon_object:
+        if melon in cart:     
+            cart_list.append(cart.get(melon))
+
+    type_melon_cost = sum[cart_list]
+
+    """Add quantity of melons. """
+    quantity += melon for melon in melon_object if melon in cart
+
+    """Find total price. """
+    for melon in cart:
+        total_price += type_melon_cost
+                        
+
+
+    
 
     return render_template("cart.html")
 
